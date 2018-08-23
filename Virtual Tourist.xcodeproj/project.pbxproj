@@ -19,6 +19,9 @@
 		6A19384B212EF66E00E26AA7 /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A19384A212EF66E00E26AA7 /* ViewController+Extensions.swift */; };
 		6A19384D212EF6A300E26AA7 /* Photo+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A19384C212EF6A300E26AA7 /* Photo+Properties.swift */; };
 		6A19384F212EF6CE00E26AA7 /* Pin+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A19384E212EF6CE00E26AA7 /* Pin+Properties.swift */; };
+		6A193852212EF73F00E26AA7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A193851212EF73F00E26AA7 /* MapViewController.swift */; };
+		6A193854212EF78B00E26AA7 /* PhotoDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A193853212EF78B00E26AA7 /* PhotoDisplayViewController.swift */; };
+		6A193856212EF7D100E26AA7 /* PhotoDisplayViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A193855212EF7D100E26AA7 /* PhotoDisplayViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		6A19384A212EF66E00E26AA7 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
 		6A19384C212EF6A300E26AA7 /* Photo+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+Properties.swift"; sourceTree = "<group>"; };
 		6A19384E212EF6CE00E26AA7 /* Pin+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin+Properties.swift"; sourceTree = "<group>"; };
+		6A193851212EF73F00E26AA7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		6A193853212EF78B00E26AA7 /* PhotoDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDisplayViewController.swift; sourceTree = "<group>"; };
+		6A193855212EF7D100E26AA7 /* PhotoDisplayViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoDisplayViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,7 @@
 				6A19382D212EF08E00E26AA7 /* Virtual_Tourist.xcdatamodeld */,
 				6A193844212EF59D00E26AA7 /* DataController.swift */,
 				6A19383F212EF22E00E26AA7 /* Models */,
+				6A193850212EF71400E26AA7 /* ViewControllers */,
 				6A193842212EF4CA00E26AA7 /* StoryBoard */,
 				6A193843212EF53E00E26AA7 /* Assets */,
 				6A193835212EF08F00E26AA7 /* Info.plist */,
@@ -107,6 +114,16 @@
 				6A193830212EF08F00E26AA7 /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		6A193850212EF71400E26AA7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6A193851212EF73F00E26AA7 /* MapViewController.swift */,
+				6A193853212EF78B00E26AA7 /* PhotoDisplayViewController.swift */,
+				6A193855212EF7D100E26AA7 /* PhotoDisplayViewController+Extensions.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,9 +197,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A193856212EF7D100E26AA7 /* PhotoDisplayViewController+Extensions.swift in Sources */,
 				6A193847212EF61F00E26AA7 /* Pin.swift in Sources */,
+				6A193854212EF78B00E26AA7 /* PhotoDisplayViewController.swift in Sources */,
 				6A193849212EF64600E26AA7 /* PhotosParser.swift in Sources */,
 				6A193841212EF48800E26AA7 /* Photo.swift in Sources */,
+				6A193852212EF73F00E26AA7 /* MapViewController.swift in Sources */,
 				6A19384D212EF6A300E26AA7 /* Photo+Properties.swift in Sources */,
 				6A19384F212EF6CE00E26AA7 /* Pin+Properties.swift in Sources */,
 				6A193845212EF59D00E26AA7 /* DataController.swift in Sources */,
