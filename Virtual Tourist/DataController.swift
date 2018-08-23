@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Foundation
+import CoreData
 
 struct DataController {
     
@@ -25,7 +25,7 @@ struct DataController {
     
     static func shared() -> DataController {
         struct Singleton {
-            static var shared = DataController(modelName: "Virtual_Tourist")!
+            static var shared = DataController(modelName: "virtualTourist")!
         }
         return Singleton.shared
     }
