@@ -97,4 +97,60 @@ extension PhotoDisplayViewController: UICollectionViewDataSource, UICollectionVi
         save()
     }
     
-    func collectionView(_ collectionView:
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying: UICollectionViewCell, forItemAt: IndexPath) {
+        
+        if collectionView.cellForItem(at: forItemAt) == nil {
+            return
+        }
+        
+        let photo = fetchedResultsController.object(at: forItemAt)
+        if let imageUrl = photo.imageUrl {
+            Client.shared().cancelDownload(imageUrl)
+        }
+    }
+    
+    // MARK: - Helpers
+    
+    private func configImage(using cell: PhotoCell, photo: Photo, collectionView: UICollectionView, index: IndexPath) {
+        if let imageData = photo.image {
+            cell.activityIndicator.stopAnimating()
+            cell.imageView.image = UIImage(data: Data(referencing: imageData))
+        } else {
+            if let imageUrl = photo.imageUrl {
+                cell.activityIndicator.startAnimating()
+                Client.shared().downloadImage(imageUrl: imageUrl) { (data, error) in
+                    if let _ = error {
+                        self.performUIUpdatesOnMain {
+                            cell.activityIndicator.stopAnimating()
+                            self.errorForImageUrl(imageUrl)
+                        }
+                        return
+                    } else if let data = data {
+                        self.performUIUpdatesOnMain {
+                            
+                            if let currentCell = collectionView.cellForItem(at: index) as? PhotoCell {
+                                if currentCell.imageUrl == imageUrl {
+                                    currentCell.imageView.image = UIImage(data: data)
+                                    cell.activityIndicator.stopAnimating()
+                                }
+                            }
+                            photo.image = NSData(data: data)
+                            DispatchQueue.global(qos: .background).async {
+                                self.save()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private func errorForImageUrl(_ imageUrl: String) {
+        if !self.presentingAlert {
+            self.showErrorInfo(title : "Error", message: "Error while fetching image for URL: \(imageUrl)", action: {
+                self.presentingAlert = false
+            })
+        }
+        self.presentingAlert = true
+    }
+}
